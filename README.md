@@ -17,8 +17,6 @@
 
 ### 3. Results
 
-*What were your results? Namely, what was the final solution/design to your problem?*
-
 Our final solution is a fully working gesture-controlled smart-home system consisting of a wrist-worn controller and an appliance-side gateway. On the wrist, an ATmega328PB reads 6-axis motion data from the LSM6DSO IMU over I²C and classifies four directional gestures (UP, DOWN, LEFT, RIGHT). A flex-sensor front-end (implemented as a voltage divider followed by an LM358 comparator) provides a clean digital signal that allows the ATmega to distinguish between OPEN and CLOSE hand states. Recognized gestures are encoded as compact symbols (e.g., ‘U’, ‘D’, ‘L’, ‘R’, ‘O’, ‘C’) and transmitted over UART to the wrist-side ESP32-S2, which bridges from UART to Wi-Fi.
 
 On the appliance side, two ESP32 terminals receive Wi-Fi packets from the wrist-side controller, but only  after a pointing gesture–based device-selection (“pairing”) step . When the user performs a pointing gesture toward an appliance, the wristband activates its high-power IR LED; the appliance-side IR receiver that detects this pulse reports its device ID back over Wi-Fi, completing a lightweight pairing handshake. Only after this pairing confirmation are subsequent gesture commands routed to that device.
@@ -30,12 +28,6 @@ Across all devices, the full interaction pipeline— pointing gesture → IR-bas
 Hardware-wise, we successfully brought up all critical subsystems: the custom IMU I²C driver, the custom UART driver between the ATmega and ESP32, the flex-sensor comparator circuit, the high-current IR-LED driver and IR receiver for device selection, and the ESP32↔ESP32 Wi-Fi link with PWM-based motor control. The IMU runs at 104 Hz and is down-sampled to a lower rate suitable for gesture recognition, while still meeting our accuracy needs for reliable direction detection. Overall, our prototype met all of the expected design goals for sensing, gesture recognition, wireless communication, IR-based device selection, and end-device control; the only planned features not fully implemented in the final demo were the speaker-based audio feedback and the haptic vibration motor.
 
 #### 3.1 Software Requirements Specification (SRS) Results
-
-*Based on your quantified system performance, comment on how you achieved or fell short of your expected requirements.*
-
-*Did your requirements change? If so, why? Failing to meet a requirement is acceptable; understanding the reason why is critical!*
-
-*Validate at least two requirements, showing how you tested and your proof of work (videos, images, logic analyzer/oscilloscope captures, etc.).*
 
 Overall, the system met most of the software requirements, including accurate IMU gesture detection, reliable IR-based selection, low-latency ESP32 command processing, and timely LCD UI updates. The IMU pipeline exceeded expectations, achieving stable readings with accuracy better than ±10%, and gesture-processing latency remained well below the 500 ms requirement due to a 5 Hz gesture-output rate and ~100 Hz processing loop. IR detection range significantly outperformed the original software expectation of 3 m, requiring us to update the requirement based on real behavior.
 
@@ -50,22 +42,9 @@ One requirement—haptic vibration feedback—was not validated because the vibr
 | SRS-05 | The LCD display shall update device and command information within 1s of command recognition.            | Observe update speed using timestamped logs or slow-motion video.                   | Confirmed, we can see from the veidio that when the device ACK. The LCD show up the device name immediately and also the command.                 |
 | SRS-06 | The receiver ESP32 shall control all four output devices.                                                | Test each device's response                                                         | Confirmed, when we check all the device, it can be controled by our receiver ESP32                                                                |
 
-![1765226545054](image/README/1765226545054.png)
-
-![1765228649482](image/README/1765228649482.png)
-
-![1765228705841](image/README/1765228705841.png)
-
-![1765228736008](image/README/1765228736008.png)
 
 
 #### 3.2 Hardware Requirements Specification (HRS) Results
-
-*Based on your quantified system performance, comment on how you achieved or fell short of your expected requirements.*
-
-*Did your requirements change? If so, why? Failing to meet a requirement is acceptable; understanding the reason why is critical!*
-
-*Validate at least two requirements, showing how you tested and your proof of work (videos, images, logic analyzer/oscilloscope captures, etc.).*
 
 | ID                                            | Description                                                                                                                                                                          | Verification Method                                                              | Validation outcome                                                                                                                   |
 | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
@@ -77,13 +56,6 @@ One requirement—haptic vibration feedback—was not validated because the vibr
 
 Overall, our system met most of the key hardware requirements, including stable IMU sampling, reliable IR-based device selection, and responsive PWM control on the motor terminal. Some requirements changed during development as our understanding of the hardware matured. For example, the IR coverage requirement expanded once we observed significantly greater range and angle tolerance than expected, while the audio subsystem requirement shifted from a speaker–amplifier design to USB HID–based phone control due to hardware delays.
 
-![1765224767980](image/README/1765224767980.png)
-
-![1765226670358](image/README/1765226670358.png)
-
-![1765228664559](image/README/1765228664559.png)
-
-![1765228678552](image/README/1765228678552.png)
 
 ### 4. Conclusion
 
