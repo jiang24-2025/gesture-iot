@@ -6,15 +6,7 @@
 
 ### 2. Images
 
-![d153b2c3c004a44683c97a60ac9878b5](https://github.com/user-attachments/assets/a08ed438-301a-42d6-8829-91285e7f4adf)
 
-<img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/5426d0d1-5095-4c59-95f2-5cd6ccac7cc7" />
-
-![31f04a7e3b46b15270a800cd6164f40a](https://github.com/user-attachments/assets/8c326e3c-dfa7-4cc3-9b6f-d6bb104ce2e7)
-
-![微信图片_20251208151054_262_1](https://github.com/user-attachments/assets/3f60e561-e5a1-4f48-906f-32fe289cdb3b)
-
-![微信图片_20251208151035_253_1](https://github.com/user-attachments/assets/c474ccad-e33f-4dc6-b585-6a2d8d9cfa4b)
 
 ### 3. Results
 
