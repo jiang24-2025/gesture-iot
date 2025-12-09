@@ -85,3 +85,8 @@ Library
 2. Adafruit_GFX Library
 3. Adafruit_ST7735 / ST7789 Library
 4. WiFi.h & WiFiClient.h
+5. Adafruit_NeoPixel.h
+6. Arduino.h
+7. SPI.h
+8. USB.h
+9. USBHIDConsumerControl.h
