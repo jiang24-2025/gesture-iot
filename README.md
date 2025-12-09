@@ -1,4 +1,4 @@
-# ese5190_team1_Gesture-Controlled_Smart-Home_System.github.io
+# gesture-iot.github.io
 
 ### 1. Video
 
