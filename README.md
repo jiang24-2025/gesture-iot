@@ -6,6 +6,15 @@
 
 ### 2. Images
 
+![Wristband](./images/微信图片_20251207212343_270_12.jpg)
+
+![Device 1](./images/微信图片_20251208151032_252_1.jpg)
+
+![Device 2](./images/微信图片_20251208151035_253_1.jpg)
+
+![System Node](./images/微信图片_20251208151054_262_1.jpg)
+
+![Project Overview](./images/微信图片_20251208164840_268_1.jpg)
 
 
 ### 3. Results
